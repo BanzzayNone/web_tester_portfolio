@@ -1,10 +1,11 @@
 import pytest
 from playwright.sync_api import sync_playwright
-
+    # Добавляем адрес чтобы можно было менять одну строчку для всех тестов сразу 
 BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 
 @pytest.fixture(scope="session")
 def browser():
+    """ Открытие браузера, один на все тесты из-за параметра - session """
     playwright = sync_playwright().start()
     browser = playwright.chromium.launch(headless=False)
     yield browser
@@ -12,15 +13,21 @@ def browser():
     playwright.stop()
 
 @pytest.fixture
+def base_url():
+    """ Адрес основной для простоты изменения тестов - одно место вместо сотни вручную написанных go.to """
+    return BASE_URL
+
+@pytest.fixture
 def page(browser):
+    """ Открываем страницу на каждый тест, контекст у всех один """
     context = browser.new_context()
     new_page = context.new_page()
     yield new_page
     context.close()
 
-#  Фикстура с тестовыми данными (function scope — изоляция тестов)
 @pytest.fixture
 def credentials():
+    """ Фикстура с тестовыми данными (function scope — изоляция тестов) """
     return {
         "valid": {"username": "Admin", "password": "admin123"},
         "invalid_username": {"username": "WrongUser", "password": "admin123"},
@@ -29,9 +36,9 @@ def credentials():
         "dashboard_heading": ".oxd-topbar-header-breadcrumb h6"  # после успешного входа
     }
 
-#  Фикстура с селекторами (легко поддерживать при изменении вёрстки)
 @pytest.fixture
 def login_selectors():
+    """ Фикстура с селекторами (легко поддерживать при изменении вёрстки) """
     return {
         "username_input": "input[name='username']",
         "password_input": "input[name='password']",
