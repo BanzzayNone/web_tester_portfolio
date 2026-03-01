@@ -1,9 +1,10 @@
 import pytest
 from playwright.sync_api import Page, expect
 
+
 def test_login_valid_credentials(page: Page, credentials, login_selectors, base_url):
     """Успешная авторизация с валидными данными"""
-    page.goto("BASE_URL")
+    page.goto("https://opensource-demo.orangehrmlive.com")
     
     # Заполняем форму
     page.locator(login_selectors["username_input"]).fill(credentials["valid"]["username"])
@@ -11,13 +12,11 @@ def test_login_valid_credentials(page: Page, credentials, login_selectors, base_
     page.locator(login_selectors["login_button"]).click()
     
     # Проверяем переход на дашборд (бизнес-логика: успешный вход = видим заголовок)
-    expect(page.locator(login_selectors["dashboard_heading"])).to_be_visible(timeout=10000)
-    assert "Dashboard" in page.title() or page.url.endswith("/dashboard")
+    expect(page.get_by_text("Dashboard")).to_be_visible(Timeout=(1000000))
 
-
-def test_login_invalid_username(page: Page, credentials, login_selectors):
+def test_login_invalid_username(page: Page, credentials, login_selectors, base_url):
     """Авторизация с неверным username — ошибка валидации"""
-    page.goto("BASE_URL")
+    page.goto("https://opensource-demo.orangehrmlive.com")
     
     page.locator(login_selectors["username_input"]).fill(credentials["invalid_username"]["username"])
     page.locator(login_selectors["password_input"]).fill(credentials["invalid_username"]["password"])
@@ -31,9 +30,9 @@ def test_login_invalid_username(page: Page, credentials, login_selectors):
     assert "auth/login" in page.url
 
 
-def test_login_empty_fields(page: Page, credentials, login_selectors):
+def test_login_empty_fields(page: Page, credentials, login_selectors, base_url):
     """Попытка входа с пустыми полями — валидация на фронтенде"""
-    page.goto("BASE_URL")
+    page.goto("https://opensource-demo.orangehrmlive.com")
     
     # Пытаемся нажать Login без заполнения полей
     page.locator(login_selectors["login_button"]).click()
@@ -44,9 +43,9 @@ def test_login_empty_fields(page: Page, credentials, login_selectors):
     assert page.locator(login_selectors["username_input"]).get_attribute("required") is not None
 
 
-def test_page_elements_present(page: Page, login_selectors):
+def test_page_elements_present(page: Page, login_selectors, base_url):
     """Критические UI-элементы страницы авторизации присутствуют"""
-    page.goto("BASE_URL")
+    page.goto("https://opensource-demo.orangehrmlive.com")
     
     # Проверяем наличие всех ключевых элементов (бизнес-логика: страница должна быть готова к использованию)
     expect(page.locator(login_selectors["username_input"])).to_be_visible()

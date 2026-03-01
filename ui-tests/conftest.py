@@ -1,7 +1,5 @@
 import pytest
 from playwright.sync_api import sync_playwright
-    # Добавляем адрес чтобы можно было менять одну строчку для всех тестов сразу 
-BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 
 @pytest.fixture(scope="session")
 def browser():
@@ -11,11 +9,6 @@ def browser():
     yield browser
     browser.close()
     playwright.stop()
-
-@pytest.fixture
-def base_url():
-    """ Адрес основной для простоты изменения тестов - одно место вместо сотни вручную написанных go.to """
-    return BASE_URL
 
 @pytest.fixture
 def page(browser):
@@ -44,5 +37,4 @@ def login_selectors():
         "password_input": "input[name='password']",
         "login_button": "button[type='submit']",
         "error_message": ".oxd-alert-content-text",
-        "dashboard_heading": ".oxd-topbar-header-breadcrumb h6"  # после успешного входа
     }
