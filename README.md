@@ -1,4 +1,3 @@
-# 👋 Привет! Меня зовут Бандурин Кирилл
 <div align="center">
 
 # 🕵️‍♂️ QA Engineer | Web Testing | Automation Starter
@@ -13,7 +12,6 @@
 📍 **Локация:** [Нижний Новгород, РФ] | 🕒 **МСК:** [GMT+3]
 📧 **Email:** [sedoevk@gmail.com]
 ✈️ **Telegram:** [@BakerCat]
-💼 **LinkedIn:** [ссылка]
 
 ---
 <div align="center">
@@ -33,7 +31,7 @@
 **🔐 Security & Auth**
 ![OAuth](https://img.shields.io/badge/OAuth2.0-Basic-green)
 ![JWT](https://img.shields.io/badge/JWT-Basic-orange)
-![Security Headers](https://img.shields.io/badge/SecurityHeaders_Basic-Learning-red)
+![Security Headers](https://img.shields.io/badge/Headers_Basic-red)
 
 **🤖 Automation & CI/CD**
 ![Playwright](https://img.shields.io/badge/Playwright-Basic-2EAD33?logo=playwright&logoColor=white)
@@ -87,7 +85,7 @@
 <details>
 <summary><b>⚙️ Process & Quality</b></summary>
 <br>
-Применяю техники тест-дизайна (<i>Risk-Based</i>, <i>Exploratory</i>, <i>Session-Based</i>, <i>Equivalence Partitioning</i>, *etc.*). 
+Применяю техники тест-дизайна (<i>Risk-Based</i>, <i>Exploratory</i>, <i>Session-Based</i>, <i>Equivalence Partitioning</i>). 
 Грамотно оформляю артефакты: <b>Баг-репорты</b>, <b>Тест-кейсы</b>. 
 Быстро адаптируюсь к новым процессам в команде и инструментам управления задачами.
 </details>
@@ -98,8 +96,8 @@
 
 # 🌍 Языки
 </div>
-*   **Русский:** Родной
-*   **Английский:** [Уровень, например: B1 - Intermediate] (Читаю техническую документацию, понимаю терминологию)
+**Русский:** Родной
+**Английский:** [B1 - Intermediate] (Читаю техническую документацию, понимаю терминологию)
 
 ---
 
@@ -111,7 +109,6 @@
 
 *   📩 **Email:** [sedoevk@gmail.com]
 *   ✈️ **Telegram:** [@BakerCat]
-*   💼 **LinkedIn:** [ссылка]
 
 ---
 <p align="center">
