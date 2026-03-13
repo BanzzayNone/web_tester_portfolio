@@ -110,8 +110,8 @@
 </div>
 Я открыт к предложениям:
 
-*    **Email:** [sedoevk@gmail.com](тык)
-*    **Telegram:** [@BakerCat](тык)
+*    **Email:** (sedoevk@gmail.com)[тык]
+*    **Telegram:** (@BakerCat)[тык]
 
 ---
 <p align="center">
